@@ -9,20 +9,19 @@
   </head>
   <body>
     <div class="page">
-      <a href="/" class="back">← サンプル一覧</a>
+      <a href="/pretext-toy" class="back">← サンプル一覧</a>
       <h1>チャットバブル (Shrink-wrap)</h1>
       <p class="subtitle">
-        <code>walkLineRanges()</code> で各バブルの最小幅を算出。CSSの <code>max-width</code> だけでは実現できない tight な幅にします。
+        <code>walkLineRanges()</code> で各バブルの最小幅を算出。CSSの <code>max-width</code> だけでは実現できない tight
+        な幅にします。
       </p>
 
       <div class="card">
-        <label>
-          チャット幅: <strong id="width-label">360px</strong>
-        </label>
+        <label> チャット幅: <strong id="width-label">360px</strong> </label>
         <input type="range" id="width-slider" min="180" max="600" value="360" />
       </div>
 
-      <div class="card" style="padding:0;overflow:hidden">
+      <div class="card" style="padding: 0; overflow: hidden">
         <div id="chat-viewport">
           <div id="chat" class="chat"></div>
         </div>
