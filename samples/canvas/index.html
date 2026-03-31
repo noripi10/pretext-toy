@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas テキスト描画 — pretext</title>
+    <script type="module" src="/src/samples/canvas/main.ts"></script>
+  </head>
+  <body>
+    <div class="page">
+      <a href="/" class="back">← サンプル一覧</a>
+      <h1>Canvas テキスト描画</h1>
+      <p class="subtitle">
+        <code>prepareWithSegments()</code> + <code>layoutWithLines()</code> でCanvasに正確な折り返しテキストを描画。
+        障害物を避けながらテキストが流れます。
+      </p>
+
+      <div class="card">
+        <h2>テキスト入力</h2>
+        <textarea id="text-input" rows="3">
+Typography is the art and technique of arranging type to make written language legible, readable and appealing when displayed. 活版印刷術は、書かれた言語を読みやすく、魅力的に表示するための技術です。 🎨</textarea>
+        <label style="margin-top:16px">
+          フォントサイズ: <strong id="font-size-label">16px</strong>
+        </label>
+        <input type="range" id="font-size-slider" min="10" max="32" value="16" />
+        <label style="margin-top:12px">
+          行の高さ: <strong id="line-height-label">26px</strong>
+        </label>
+        <input type="range" id="line-height-slider" min="16" max="48" value="26" />
+      </div>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div class="card">
+        <div class="stat-row" id="stats"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+#chat-viewport {
+  overflow: auto;
+  background: var(--code-bg);
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.chat {
+  width: var(--chat-width, 360px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font: 15px/1.5 system-ui, sans-serif;
+}
+
+.row {
+  display: flex;
+}
+
+.row--left { justify-content: flex-start; }
+.row--right { justify-content: flex-end; }
+
+.bubble-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: var(--bubble-max-width, 260px);
+}
+
+.bubble {
+  border-radius: 16px;
+  padding: 8px 12px;
+  font: 15px/1.47 system-ui, sans-serif;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  position: relative;
+}
+
+/* CSS-only (上段: 薄い表示) */
+.bubble--css {
+  opacity: 0.35;
+}
+
+.bubble--css.bubble--left {
+  background: var(--border);
+  color: var(--text-h);
+  border-radius: 4px 16px 16px 16px;
+}
+
+.bubble--css.bubble--right {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 16px 4px 16px 16px;
+  align-self: flex-end;
+}
+
+/* Shrink-wrap (下段) */
+.bubble--shrink.bubble--left {
+  background: var(--border);
+  color: var(--text-h);
+  border-radius: 4px 16px 16px 16px;
+}
+
+.bubble--shrink.bubble--right {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 16px 4px 16px 16px;
+  align-self: flex-end;
+}
+
+.legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+
+.legend-item::before {
+  content: '';
+  width: 28px;
+  height: 12px;
+  border-radius: 6px;
+  display: block;
+}
+
+.legend-css::before {
+  background: var(--border);
+  opacity: 0.4;
+}
+
+.legend-shrink::before {
+  background: var(--accent);
+  opacity: 0.7;
+}

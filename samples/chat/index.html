@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>チャットバブル — pretext</title>
+    <script type="module" src="/src/samples/chat/main.ts"></script>
+  </head>
+  <body>
+    <div class="page">
+      <a href="/" class="back">← サンプル一覧</a>
+      <h1>チャットバブル (Shrink-wrap)</h1>
+      <p class="subtitle">
+        <code>walkLineRanges()</code> で各バブルの最小幅を算出。CSSの <code>max-width</code> だけでは実現できない tight な幅にします。
+      </p>
+
+      <div class="card">
+        <label>
+          チャット幅: <strong id="width-label">360px</strong>
+        </label>
+        <input type="range" id="width-slider" min="180" max="600" value="360" />
+      </div>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <div id="chat-viewport">
+          <div id="chat" class="chat"></div>
+        </div>
+        <div class="legend">
+          <span class="legend-item legend-css">CSSのみ (max-width)</span>
+          <span class="legend-item legend-shrink">Shrink-wrap (pretext)</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="stat-row" id="stats"></div>
+      </div>
+    </div>
+  </body>
+</html>

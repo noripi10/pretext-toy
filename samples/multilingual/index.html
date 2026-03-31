@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>多言語レイアウト — pretext</title>
+    <script type="module" src="/src/samples/multilingual/main.ts"></script>
+  </head>
+  <body>
+    <div class="page">
+      <a href="/" class="back">← サンプル一覧</a>
+      <h1>多言語レイアウト</h1>
+      <p class="subtitle">
+        日本語・Arabic・Thai・絵文字が混在するテキストを正確に折り返します。
+        <code>Intl.Segmenter</code> ベースで全言語に対応。
+      </p>
+
+      <div class="card">
+        <label>コンテナ幅: <strong id="width-label">400px</strong></label>
+        <input type="range" id="width-slider" min="120" max="700" value="400" />
+      </div>
+
+      <div id="blocks"></div>
+
+      <div class="card">
+        <div class="stat-row" id="stats"></div>
+      </div>
+    </div>
+  </body>
+</html>
