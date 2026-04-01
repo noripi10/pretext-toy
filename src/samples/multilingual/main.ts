@@ -64,8 +64,10 @@ function render(): void {
           <span class="lang-name">${s.lang}</span>
           <span class="lang-stat">${r.lineCount}行 / ${r.height}px</span>
         </div>
-        <div class="lang-preview" style="width:${maxWidth}px;height:${r.height + 16}px;font:${FONT};line-height:${LINE_HEIGHT}px;">
+        <div class="lang-preview">
+          <div class="lang-preview-text" style="width:${maxWidth}px;height:${r.height}px;font:${FONT};line-height:${LINE_HEIGHT}px;">
           ${s.text}
+          </div>
         </div>
       </div>`;
   }).join('');
@@ -92,6 +94,28 @@ function render(): void {
   `;
 }
 
+function resizeHandler() {
+  let maxPossible = 800; // default fallback
+  const { width } = widthSlider.getBoundingClientRect();
+  maxPossible = Math.min(maxPossible, Math.floor(width));
+
+  // 現在スライダーで選択できる最大値より実際にとれる最大値が小さい場合は下げる
+  if (Number(widthSlider.max) !== maxPossible) {
+    widthSlider.max = maxPossible.toString();
+
+    // 現在の選択値がmaxを超えていたら修正
+    if (Number(widthSlider.value) > maxPossible) {
+      widthSlider.value = maxPossible.toString();
+    }
+    widthLabel.textContent = `${widthSlider.value}px`;
+
+    render();
+  }
+}
+
 widthSlider.addEventListener('input', render);
 document.fonts.ready.then(render);
+window.addEventListener('resize', resizeHandler);
+
 render();
+resizeHandler();

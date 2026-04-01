@@ -14,7 +14,10 @@
   background: var(--code-bg);
 }
 
-.lang-flag { font-size: 20px; line-height: 1; }
+.lang-flag {
+  font-size: 20px;
+  line-height: 1;
+}
 
 .lang-name {
   font-size: 14px;
@@ -30,12 +33,21 @@
 
 .lang-preview {
   padding: 16px;
+}
+
+.lang-preview-text {
+  background: var(--accent-bg);
+  border: 1px dashed var(--accent-border);
+  padding: 0;
+
   color: var(--text-h);
   word-break: break-word;
   overflow-wrap: break-word;
   white-space: normal;
   overflow: hidden;
   transition: height 0.1s;
+
+  border-radius: 2px;
 
   /* RTL対応 */
   unicode-bidi: plaintext;
